@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelGo - Book Your Trip</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">TravelGo <span class="version">v1.0</span></h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/booking.html" class="active">Book Now</a></li>
+                <li><a href="/bookings.html">My Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="booking-section">
+            <h1>Book Your Dream Vacation</h1>
+            <p class="subtitle">Fill in the details below to reserve your spot</p>
+
+            <div id="message" class="message"></div>
+
+            <form id="bookingForm" class="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Destination *</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select a destination</option>
+                        <option value="Paris, France">Paris, France</option>
+                        <option value="Tokyo, Japan">Tokyo, Japan</option>
+                        <option value="Bali, Indonesia">Bali, Indonesia</option>
+                        <option value="New York, USA">New York, USA</option>
+                        <option value="Dubai, UAE">Dubai, UAE</option>
+                        <option value="Sydney, Australia">Sydney, Australia</option>
+                        <option value="London, UK">London, UK</option>
+                        <option value="Rome, Italy">Rome, Italy</option>
+                        <option value="Barcelona, Spain">Barcelona, Spain</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Travel Date *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Book Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TravelGo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/booking.js"></script>
+</body>
+</html>

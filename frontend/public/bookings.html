@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelGo - My Bookings</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">TravelGo <span class="version">v1.0</span></h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/booking.html">Book Now</a></li>
+                <li><a href="/bookings.html" class="active">My Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="bookings-section">
+            <h1>All Bookings</h1>
+            <p class="subtitle">View all travel reservations</p>
+
+            <div id="loading" class="loading">Loading bookings...</div>
+            <div id="error" class="message error" style="display: none;"></div>
+            <div id="noBookings" class="no-bookings" style="display: none;">
+                <p>No bookings found yet.</p>
+                <a href="/booking.html" class="btn btn-primary">Make Your First Booking</a>
+            </div>
+
+            <div id="bookingsList" class="bookings-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TravelGo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/bookings.js"></script>
+</body>
+</html>
