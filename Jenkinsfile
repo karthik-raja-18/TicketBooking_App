@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
@@ -24,22 +25,29 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sshagent(['app-server-ssh-credentials']) {
-                    // SSH to EC2, pull latest code, install dependencies, restart/start PM2
-                    sh '''
-                    ssh ubuntu@34.201.102.73 "
-                        # Ensure app folder exists
-                        if [ ! -d ~/app ]; then
-                            mkdir -p ~/app
-                            git clone https://github.com/karthik-raja-18/TicketBooking_App ~/app
-                        fi
-                        cd ~/app/backend
-                        git pull
-                        npm install
-                        pm2 restart all || pm2 start index.js
-                    "
-                    '''
-                }
+                // SSH directly using Hackathon.pem
+                sh '''
+                ssh -i /var/lib/jenkins/.ssh/Hackathon.pem ubuntu@34.201.102.73 "
+                    # Ensure app folder exists
+                    if [ ! -d ~/app ]; then
+                        mkdir -p ~/app
+                        git clone https://github.com/karthik-raja-18/TicketBooking_App ~/app
+                    fi
+
+                    # Deploy backend
+                    cd ~/app/backend
+                    git pull
+                    npm install
+                    pm2 restart all || pm2 start index.js
+
+                    # (Optional) Deploy frontend if exists
+                    # cd ~/app/frontend
+                    # git pull
+                    # npm install
+                    # npm run build
+                    # pm2 restart frontend || pm2 start serve -s build -l 80
+                "
+                '''
             }
         }
     }
